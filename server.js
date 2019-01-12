@@ -1,8 +1,10 @@
 const express = require("express");
-
-const mongoose = require("mongoose");
 const app = express();
+const server = require('http').createServer(app);
+
 const PORT = process.env.PORT || 3001;
+
+const db = require("./models");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -16,10 +18,8 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 require('./routes/api-routes')(app);
 
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactNotes");
-
-// Start the API server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+db.sequelize.sync({ force: false }).then(function() {
+  server.listen(PORT, function() {
+    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+  });
 });
