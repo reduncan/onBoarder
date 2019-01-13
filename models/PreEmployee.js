@@ -2,7 +2,9 @@ module.exports = function (sequelize, DataTypes) {
 
     const PreEmployee = sequelize.define("pre-employee", {
         id: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
         },
         first_name: {
             type: DataTypes.STRING,
@@ -31,7 +33,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         email: {
-            type: DataTypes.VARCHAR,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: {
@@ -44,7 +46,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         hire_date: {
-            type: DataTypes.VARCHAR(10),
+            type: DataTypes.STRING(10),
             allowNull: false,
             validate: {
                 is: /^\d{2}[\/.-]\d{2}[\/.-]\d{4}$/i

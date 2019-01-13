@@ -1,41 +1,23 @@
-const Note = require('../models/Note');
+const RestfulAPI = require('./RestClass');
+const db = require('../models');
 
 module.exports = function (app) {
 
-  app.get('/api/notes', function (req, res) {
-    Note.find({})
-      .then(function (data) {
-        res.json(data);
-      })
-      .catch(function (err) {
-        res.json(err);
-      });
-  });
+  const preEmployees = new RestfulAPI('preEmployees', app, db.PreEmployee);
+  preEmployees.find();
+  preEmployees.create();
+  preEmployees.delete('id');
+  preEmployees.update('id');
 
+  const employees = new RestfulAPI('employees', app, db.Employee);
+  employees.find();
+  employees.create();
+  employees.delete('id');
+  employees.update('id');
 
-  app.post('/api/notes', function (req, res) {
-    Note.create(req.body)
-      .then(function (data) {
-        res.json(data);
-      })
-      .catch(function (err) {
-        res.json(err);
-      });
-  });
-
-  app.put('/api/notes/:id', function (req, res) {
-    Note.findOneAndUpdate({ _id: req.body._id }, { completed: req.body.completed })
-      .then(function (data) {
-        res.json(data);
-      })
-      .catch(function (err) {
-        res.json(err);
-      });
-  });
-
-  app.delete('/api/notes/:id', function (req, res) {
-    Note.findOneAndDelete(req.params.id)
-      .then(data => res.json({ success: true }))
-      .catch(err => res.json(err))
-  })
-}
+  const documents = new RestfulAPI('documents', app, db.Documents);
+  documents.find();
+  documents.create();
+  documents.delete('id');
+  documents.update('id');
+};
