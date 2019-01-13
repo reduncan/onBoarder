@@ -1,8 +1,13 @@
 module.exports = function (sequelize, DataTypes) {
 
   const Employee = sequelize.define("employee", {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
     user_name: {
-      type: DataTypes.VARCHAR,
+      type: DataTypes.STRING,
       allowNull: false,
       unique: true,
       validate: {
@@ -16,7 +21,7 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     password: {
-      type: DataTypes.VARCHAR,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: {
@@ -52,7 +57,7 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     primary_phone_number: {
-      type: DataTypes.VARCHAR,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         is: /^\d{3}[\.-]\d{3}[\.-]\d{4}$/i,
@@ -63,7 +68,7 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     secondary_phone_number: {
-      type: DataTypes.VARCHAR,
+      type: DataTypes.STRING,
       allowNull: true,
       validate: {
         is: /^\d{3}[\.-]\d{3}[\.-]\d{4}$/i,
@@ -74,7 +79,7 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     email: {
-      type: DataTypes.VARCHAR,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: {
@@ -87,19 +92,19 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     street: {
-      type: DataTypes.VARCHAR(255),
+      type: DataTypes.STRING(255),
       allowNull: false
     },
     street2: {
-      type: DataTypes.VARCHAR(255),
-      allowNull: false
+      type: DataTypes.STRING(255),
+      allowNull: true
     },
     city: {
-      type: DataTypes.VARCHAR(50),
+      type: DataTypes.STRING(50),
       allowNull: false
     },
     state: {
-      type: DataTypes.VARCHAR(12),
+      type: DataTypes.STRING(12),
       allowNull: false
     },
     zip_code: {
@@ -107,43 +112,47 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     office: {
-      type: DataTypes.VARCHAR(10),
+      type: DataTypes.STRING(10),
       allowNull: false
     },
     dob: {
-      type: DataTypes.VARCHAR(10),
+      type: DataTypes.STRING(10),
       allowNull: false,
       validate: {
         is: /^\d{2}[\/.-]\d{2}[\/.-]\d{4}$/i
       }
     },
     ss_number: {
-      type: DataTypes.VARCHAR(11),
+      type: DataTypes.STRING(11),
       allowNull: false,
       validate: {
         is: /^\d{3}[-.]\d{2}[-.]\d{4}$/i
       }
     },
     hire_date: {
-      type: DataTypes.VARCHAR(10),
+      type: DataTypes.STRING(10),
       allowNull: false,
       validate: {
         is: /^\d{2}[\/.-]\d{2}[\/.-]\d{4}$/i
       }
     },
     activated_date: {
-      type: DataTypes.VARCHAR(10),
+      type: DataTypes.STRING(10),
       allowNull: false,
       validate: {
         is: /^\d{2}[\/.-]\d{2}[\/.-]\d{4}$/i
       }
     },
     termination_date: {
-      type: DataTypes.VARCHAR(10),
+      type: DataTypes.STRING(10),
       allowNull: true,
       validate: {
         is: /^\d{2}[\/.-]\d{2}[\/.-]\d{4}$/i
       }
+    },
+    requiredDocs: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     ec_first_name: {
       type: DataTypes.STRING,
@@ -172,7 +181,7 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     ec_email: {
-      type: DataTypes.VARCHAR,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: {
@@ -185,7 +194,7 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     ec_phone_number: {
-      type: DataTypes.VARCHAR,
+      type: DataTypes.STRING,
       allowNull: true,
       validate: {
         is: /^\d{3}[\.-]\d{3}[\.-]\d{4}$/i,
