@@ -152,12 +152,13 @@ class RestfulAPI {
                         });
                     break;
                 case 'documents':
-                    this.model.findOneAndUpdate({
-                        [identifier]: req.body[identifier]
-                    },
-                        {
-                            name: req.body.name,
-                            path: req.body.path
+                    this.model.Update({
+                        name: req.body.name,
+                        path: req.body.path
+                    }, {
+                            where: {
+                                id: req.params[identifier]
+                            }
                         }).then(function (data) {
                             res.json(data);
                         }).catch(function (err) {
