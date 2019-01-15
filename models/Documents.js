@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   
-    const Documents = sequelize.define("documents", {
+    const Documents = sequelize.define("Documents", {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
