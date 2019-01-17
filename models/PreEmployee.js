@@ -45,6 +45,10 @@ module.exports = function (sequelize, DataTypes) {
                 }
             }
         },
+        office: {
+            type: DataTypes.STRING(10),
+            allowNull: false
+        },
         hire_date: {
             type: DataTypes.STRING(10),
             allowNull: false,
