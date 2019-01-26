@@ -1,7 +1,7 @@
 import React from 'react'
 import Page from '../Reusables/Page/Page'
 
-export default class AddNewPage extends React.Component {
+export default class AddFieldPage extends React.Component {
     state = {
 
     }
@@ -10,7 +10,7 @@ export default class AddNewPage extends React.Component {
         return(
             <div>
                 <Page>
-                    <p>You are on the AddNewPage</p>
+                    <p>You are on the AddFieldPage</p>
                 </Page>
             </div>
         )
