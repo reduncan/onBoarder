@@ -1,5 +1,7 @@
-import React from 'react'
-import Page from '../Reusables/Page/Page'
+import React from 'react';
+import Page from '../Reusables/Page/Page';
+import StatusBar from './StatusBox/StatusBar';
+import EmployeeGraph from './EmployeeGraph/EmployeeGraph';
 
 export default class Dashboard extends React.Component {
     state = {
@@ -10,7 +12,8 @@ export default class Dashboard extends React.Component {
         return(
             <div>
                 <Page>
-                    <p>You are on the Dashboard</p>
+                    <StatusBar />
+                    <EmployeeGraph />
                 </Page>
             </div>
         )

@@ -1,5 +1,6 @@
 import React from 'react'
 import Page from '../Reusables/Page/Page'
+import { Dimmer, Loader } from 'semantic-ui-react'
 
 export default class AddFieldPage extends React.Component {
     state = {
@@ -7,10 +8,12 @@ export default class AddFieldPage extends React.Component {
     }
 
     render() {
-        return(
+        return (
             <div>
                 <Page>
-                    <p>You are on the AddFieldPage</p>
+                    <Dimmer active>
+                        <Loader size='massive'>Page Under Construction</Loader>
+                    </Dimmer>
                 </Page>
             </div>
         )
