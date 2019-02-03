@@ -5,6 +5,9 @@ import EmployeeGraph from './EmployeeGraph/EmployeeGraph';
 
 export default class Dashboard extends React.Component {
     state = {
+        employee: {
+            
+        }
 
     }
 
