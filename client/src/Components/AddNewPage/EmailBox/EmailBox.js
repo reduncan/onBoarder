@@ -1,11 +1,11 @@
 import React from 'react'
-import { Form } from 'semantic-ui-react'
+import { Form, TextArea } from 'semantic-ui-react'
 
-const EmailBox = () => (
+const EmailBox = (props) => (
     <div>
         <h3>Body of Email</h3>
         <Form>
-            <Form.TextArea />
+            <TextArea onChange={props.bodyChange} value={props.bodyValue}/>
         </Form>
     </div>
 )
